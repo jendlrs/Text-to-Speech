@@ -23,18 +23,32 @@ print ("====================================================================\n")
 #Second Step: Option Conditions
 engine.say ("What option do you want to try? Enter only the number")
 engine.runAndWait()
-print ("What option do you want to try?\n")
-userInputfunction = int (input ("Enter only the number: ")) #Third Step: Ask user for input
+print ("What do you want to do?")
 
-if userInputfunction == 1: 
-    directType = input ("\nEnter the text you want me to read: ")
-    engine.say (directType) #Fourth Step: code for text to speech
-    engine.runAndWait()
-else:
-    inputFilename = input ("\nEnter the file name of the text file you want me to read: ")
-    file = open (inputFilename, 'r', encoding = "UTF-8")
-    text = file.read()
-    print(f"\n{text}")
-    engine.say (text)
-    engine.runAndWait()
-    file.close()
+while True:
+    try:
+        userInputfunction = int (input ("\nEnter only the number: ")) #Third Step: Ask user for input
+        if userInputfunction not in range (1, 3):
+            print ("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter 1 to 2 only.\n")
+            continue
+    except ValueError:
+            print("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter a number only.\n") 
+            continue    
+    else:
+        if userInputfunction == 1: 
+            directType = input ("\nEnter the text you want me to read: ")
+            engine.say (directType) #Fourth Step: code for text to speech
+            engine.runAndWait()
+            break
+            
+        elif userInputfunction==2:
+            inputFilename = input ("\nEnter the file name of the text file you want me to read: ")
+            file = open (inputFilename, 'r', encoding = "UTF-8")
+            text = file.read()
+            print(f"\n{text}")
+            engine.say (text)
+            engine.runAndWait()
+            file.close()
+            break
+            
+
