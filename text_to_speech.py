@@ -10,6 +10,10 @@ import pyttsx3
                 #Type the text
 
 engine = pyttsx3.init()
+voices = engine.getProperty("voices") #getting the available voices
+for voice in voices:
+    engine.setProperty("voice", voice.id) #change voice into female
+
 print ("\n\033[35m====================================================================\033[0m")
 print ("    Hi There! This program can read the text you will enter.")
 print ("\033[35m====================================================================\033[0m")
