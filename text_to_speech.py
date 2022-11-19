@@ -35,11 +35,15 @@ while True:
         if userInputfunction not in range (1, 3):
             print ("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter 1 to 2 only.\n")
             print ("\033[35m====================================================================\033[0m\n")
+            engine.say ("Sorry, you have entered an invalid input")
+            engine.runAndWait()
 
             continue
     except ValueError:
             print("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter a number only.\n")
             print ("\033[35m====================================================================\033[0m\n")
+            engine.say ("Sorry, you have entered an invalid input")
+            engine.runAndWait()
             continue    
     else:
         if userInputfunction == 1: 
