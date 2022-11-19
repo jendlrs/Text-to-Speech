@@ -5,6 +5,7 @@
 
 #First Step: Import pyttsx3
 import pyttsx3
+from pathlib import Path
 #Second Step: Print the options:
                 #Upload a text file
                 #Type the text
@@ -24,4 +25,10 @@ if userInputfunction == 1:
     engine.say (directType) #Fourth Step: code for text to speech
     engine.runAndWait()
 else:
-    print ("Option 2")
+    inputFilename = input ("Enter the file name of the text file you want me to read: ")
+    file = open (inputFilename, 'r', encoding = "UTF-8")
+    text = file.read()
+    print(text)
+    engine.say (text)
+    engine.runAndWait()
+    file.close()
