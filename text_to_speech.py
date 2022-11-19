@@ -11,13 +11,13 @@ import pyttsx3
 
 engine = pyttsx3.init()
 print ("\n====================================================================")
-print ("    Hi There! This program can read the text you want to hear.")
+print ("    Hi There! This program can read the text you will enter.")
 print ("====================================================================")
-engine.say ("Hi There! This program can read the text you want to hear.")
+engine.say ("Hi There! This program can read the text you will enter.")
 engine.runAndWait()
 print ("\nOptions")
 print ("1 --> Directly type the text")
-print ("2 --> Upload a Text File\n")
+print ("2 --> Open a Text File\n")
 print ("====================================================================\n")
 
 #Second Step: Option Conditions
@@ -39,16 +39,24 @@ while True:
             directType = input ("\nEnter the text you want me to read: ")
             engine.say (directType) #Fourth Step: code for text to speech
             engine.runAndWait()
-            break
+        
             
         elif userInputfunction==2:
             inputFilename = input ("\nEnter the file name of the text file you want me to read: ")
             file = open (inputFilename, 'r', encoding = "UTF-8")
             text = file.read()
-            print(f"\n{text}")
+            print(f"\n========================================\n{text}\n========================================\n")
             engine.say (text)
             engine.runAndWait()
             file.close()
-            break
+            
+    engine.say ("Do you want to continue?")
+    engine.runAndWait()
+    tryAgain = input ("\nDo you want to try again? y/n: ")
+    if (tryAgain == 'y' or tryAgain == "Y") or (tryAgain =="Yes"or tryAgain == "yes"):
+            continue
+    else:
+        print ("\nThank you for using this \033[1mprogram!\033[0m\n") #End
+        break
             
 
