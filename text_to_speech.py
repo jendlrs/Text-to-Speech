@@ -15,13 +15,13 @@ print ("\nOptions")
 print ("1 --> Directly type the text")
 print ("2 --> Upload a Text File\n")
 print ("====================================================================\n")
+
 #Second Step: Option Conditions
 engine = pyttsx3.init()
-userInputfunction = int (input ("What option do you want to try? "))
-if userInputfunction == 1:
+userInputfunction = int (input ("What option do you want to try? ")) #Third Step: Ask user for input
+if userInputfunction == 1: 
     directType = input ("Enter the text you want me to read: ")
-    engine.say (directType)
+    engine.say (directType) #Fourth Step: code for text to speech
     engine.runAndWait()
-
-#Third Step: Ask user for input
-#Fourth Step: Code for text to speech
+else:
+    print ("Option 2")
