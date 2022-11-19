@@ -5,7 +5,6 @@
 
 #First Step: Import pyttsx3
 import pyttsx3
-from pathlib import Path
 #Second Step: Print the options:
                 #Upload a text file
                 #Type the text
