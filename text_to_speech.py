@@ -10,15 +10,15 @@ import pyttsx3
                 #Type the text
 
 engine = pyttsx3.init()
-print ("\n====================================================================")
+print ("\n\033[35m====================================================================\033[0m")
 print ("    Hi There! This program can read the text you will enter.")
-print ("====================================================================")
+print ("\033[35m====================================================================\033[0m")
 engine.say ("Hi There! This program can read the text you will enter.")
 engine.runAndWait()
-print ("\nOptions")
-print ("1 --> Directly type the text")
-print ("2 --> Open a Text File\n")
-print ("====================================================================\n")
+print ("\n\033[92mOptions\033[0m")
+print ("\n\033[93m  1\033[0m--> Directly type the text")
+print ("\033[93m  2\033[0m--> Open a Text File\n")
+print ("\033[35m====================================================================\033[0m\n")
 
 #Second Step: Option Conditions
 engine.say ("What option do you want to try? Enter only the number")
@@ -27,12 +27,15 @@ print ("What do you want to do?")
 
 while True:
     try:
-        userInputfunction = int (input ("\nEnter only the number: ")) #Third Step: Ask user for input
+        userInputfunction = int (input ("Enter only the number: ")) #Third Step: Ask user for input
         if userInputfunction not in range (1, 3):
             print ("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter 1 to 2 only.\n")
+            print ("\033[35m====================================================================\033[0m\n")
+
             continue
     except ValueError:
-            print("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter a number only.\n") 
+            print("\n\033[91mSorry, you have entered an invalid input.\033[0m\nPlease enter a number only.\n")
+            print ("\033[35m====================================================================\033[0m\n")
             continue    
     else:
         if userInputfunction == 1: 
@@ -45,11 +48,11 @@ while True:
             inputFilename = input ("\nEnter the file name of the text file you want me to read: ")
             file = open (inputFilename, 'r', encoding = "UTF-8")
             text = file.read()
-            print(f"\n========================================\n{text}\n========================================\n")
+            print(f"\n\033[35m========================================\n\033[0m{text}\n\033[35m========================================\033[0m")
             engine.say (text)
             engine.runAndWait()
             file.close()
-            
+
     engine.say ("Do you want to continue?")
     engine.runAndWait()
     tryAgain = input ("\nDo you want to try again? y/n: ")
